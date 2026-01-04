@@ -50,10 +50,13 @@
     </ItemGroup>
 
 	    <ItemGroup>
-      <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.42.0" />
+      <PackageReference Include="STBlade.Modding.TLD.Il2CppAssemblies.Windows" Version="2.51.0" />
     </ItemGroup>
 
 	    <ItemGroup>
+	      <Reference Include="ModComponent">
+	        <HintPath>..\..\..\SteamLibrary\steamapps\common\TheLongDark\Mods\ModComponent.dll</HintPath>
+	      </Reference>
 	      <Reference Include="ModSettings">
 	        <HintPath>C:\SteamLibrary\steamapps\common\TheLongDark\Mods\ModSettings.dll</HintPath>
 	      </Reference>

@@ -288,14 +288,16 @@
             AA.ActivateTool(AA.ToolPoint.RightHand, false);
         }
 
-        private static void LoadEmbeddedAssetBundle()
+        public static void LoadEmbeddedAssetBundle()
         {
-            MemoryStream memoryStream;
-            Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("FoodsByCalorieWaltz.Resources.cwfcustom");
-            memoryStream = new MemoryStream((int)stream.Length);
-            stream.CopyTo(memoryStream);
+            using (Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("FoodsByCalorieWaltz.Resources.cwfcustom"))
+            {
+                MemoryStream? memory = new((int)stream.Length);
+                stream!.CopyTo(memory);
 
-            CWFCustomBundle = AssetBundle.LoadFromMemory(memoryStream.ToArray());
+                Il2CppSystem.IO.MemoryStream memoryStream = new(memory.ToArray());
+                CWFCustomBundle = AssetBundle.LoadFromStream(memoryStream);
+            };
         }
 
         public static Material InstantiateLiquidMaterial()
